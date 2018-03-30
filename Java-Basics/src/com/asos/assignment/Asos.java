@@ -39,21 +39,12 @@ public class Asos {
 		driver.findElement(By.name("billing_last_name")).sendKeys("Bidwai");
 		driver.findElement(By.id("billing_email")).sendKeys("Shubhu.bh2001@gmail.com");
 		driver.findElement(By.id("billing_phone")).sendKeys("1234532347");
-		//WebElement country=driver.findElement(By.xpath("//*[@id='s2id_autogen1_search']"));
-		//Select ctrylist=new Select(country);
 		
-		//ctrylist.selectByVisibleText("Russia");
 		
 		driver.findElement(By.xpath("//*[@id='select2-chosen-1']")).click();
 		driver.findElement(By.xpath("//div[@id='select2-drop']/ul/li[103]/div")).click();
 		driver.findElement(By.xpath("//*[@id='billing_address_1']")).sendKeys("F 104 Rosewoods");
 		driver.findElement(By.id("billing_city")).sendKeys("Pune");
-		//driver.findElement(By.id("billing_state")).sendKeys("Maharashtra");
-		
-		//WebElement textBoxElement = driver.findElement(By.xpath("//*[@id='select2-chosen-2']"));
-		//textBoxElement.sendKeys("m");
-		//driver.findElement(By.id("s2id_autogen2_search")).click();
-		//driver.findElement(By.id("s2id_autogen2_search")).sendKeys("Maharashtra");
 		
 		driver.findElement(By.xpath("//*[@id='select2-chosen-2']")).click();
 		driver.findElement(By.xpath("//div[@id='select2-drop']/ul/li[3]/div")).click();
