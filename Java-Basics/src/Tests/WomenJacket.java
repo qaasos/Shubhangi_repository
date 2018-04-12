@@ -33,6 +33,7 @@ public class WomenJacket {
 		Po.load(new FileInputStream(new File(System.getProperty("user.dir") +"\\config\\config.properties")));
 		
 		driver = DU.getDriver(Po.getProperty("browser"));
+		
 	
 		//Home Page
 		HomePage HP = new HomePage(driver);
