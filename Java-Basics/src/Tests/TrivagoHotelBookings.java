@@ -14,6 +14,7 @@ import PageObjects.TrivagoHomePage;
 import PageObjects.TrivagoHotelDetailsView;
 import PageObjects.TrivagoListHotelNames;
 import Utils.DriverUtils;
+import Utils.TakeScreenshots;
 
 public class TrivagoHotelBookings {
 
@@ -34,6 +35,8 @@ public class TrivagoHotelBookings {
 		
 		HP.goToHomePageURL(Po.getProperty("trivagourl"));
 		HP.SelectLocationsDatesAndRoomeType(city, areaname);
+		
+		TakeScreenshots.getScreenshot();
 		
 		TrivagoFilterHotels FH=new TrivagoFilterHotels(driver);
 		FH.filterHotelrooms();
