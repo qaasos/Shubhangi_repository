@@ -23,7 +23,7 @@ public class TrivagoHotelDetailsView {
 	
 	public void CheckPrice(String price1) throws Exception
 	{
-		driver.findElements(By.xpath("//button[@class='btn btn--deal btn--regular icon-bg-icn_arrow_deal fl-trailing']")).get(0).click();
+		driver.findElements(By.xpath("//button[@class='btn btn--deal btn--regular icon-bg-icn_arrow_deal fl-trailing']")).get(1).click();
 		
 		
 		Set<String> ids=driver.getWindowHandles();
@@ -42,7 +42,7 @@ public class TrivagoHotelDetailsView {
 		//System.out.println(price);
 		
 		//String price =driver.findElement(By.xpath("(*//p[@class='full fm-lb fs-28 ng-binding'])[1]")).getText();
-		
+		System.out.println(price+price1);
 		if(price.equalsIgnoreCase(price1))
 		{
 			System.out.println("Price on list view matches the price on Detail view");

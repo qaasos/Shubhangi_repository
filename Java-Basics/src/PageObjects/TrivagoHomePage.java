@@ -8,14 +8,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class TrivagoHomePage {
+import Utils.CommanUtility;
+
+public class TrivagoHomePage extends CommanUtility {
 	
 	public WebDriver driver;
 	public WebDriverWait wait;
 	By search=By.id("horus-querytext");
 	
-	By FromDate=By.xpath("//time[@datetime='2018-04-17']");
-	By ToDate=By.xpath("//time[@datetime='2018-04-19']");
+	By FromDate=By.xpath("//time[@datetime='2018-04-21']");
+	By ToDate=By.xpath("//time[@datetime='2018-04-22']");
 	By fimilyRoom=By.xpath("//span[@class='df_component df_label']");
 	//driver.findElements(By.xpath("//span[@class='df_component df_label']")).get(2).click();
 	By adult=By.id("select-num-adults-1");
@@ -39,42 +41,38 @@ public class TrivagoHomePage {
 	  driver.manage().window().maximize();
 	}
 	
-	public void SelectLocationsDatesAndRoomeType(String city, String areaname) throws Exception
+	public void SelectLocationsDatesAndRoomeType(int adultnum,int childnum,int childage1,String fromday,String frommonth,String today1,String tomonth1) throws Exception
 	{
-		driver.findElement(search).sendKeys(city);
 		
-		Thread.sleep(2000);
-		driver.findElement(search).sendKeys(Keys.DOWN);
-		JavascriptExecutor js=(JavascriptExecutor)driver;	
 		
-		String script="return document.getElementById(\"horus-querytext\").value;";
-		String text=(String) js.executeScript(script);
-		System.out.println(text);
+		//Thread.sleep(2000);
+		System.out.println(fromday+frommonth);
+		System.out.println(today1+tomonth1);
+		CommanUtility.Calendar(fromday, frommonth);
 		
-		while(!text.equalsIgnoreCase(areaname))
-		{
-			driver.findElement(search).sendKeys(Keys.DOWN);
-			text=(String) js.executeScript(script);
-			
-		}
-		driver.findElement(search).sendKeys(Keys.ENTER);
+		CommanUtility.Calendar(today1, tomonth1);
+		/*driver.findElement(FromDate).click();
+		//Thread.sleep(2000);
+		driver.findElement(ToDate).click();*/
+		//Thread.sleep(3000);
+		//driver.findElement(By.xpath("//*[@id='js-fullscreen-hero']/div/form/div[1]/div[2]/div/div[3]/button")).click();
 		
-		driver.findElement(FromDate).click();
-		driver.findElement(ToDate).click();
-		Thread.sleep(3000);
-		
+		String adultnumStr=Integer.toString(adultnum);
+		String childnumStr=Integer.toString(childnum);
+		String childage1Str=Integer.toString(childage1);
 	driver.findElements(fimilyRoom).get(2).click();
 	
 	Select adultDP=new Select(driver.findElement(adult));
-	adultDP.selectByVisibleText("2");
+	System.out.println(adultnum);
+	adultDP.selectByVisibleText(adultnumStr);
 	
 	Select childDP=new Select(driver.findElement(child));
-	childDP.selectByValue("1");	
+	childDP.selectByValue(childnumStr);	
 	
-	Thread.sleep(2000);
+	//Thread.sleep(2000);
 	
 	Select childAgeDP=new Select(driver.findElement(ChildAge));
-	childAgeDP.selectByValue("8");
+	childAgeDP.selectByValue(childage1Str);
 	
 	driver.findElement(Confirm).click();
 	

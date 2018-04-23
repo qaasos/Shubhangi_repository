@@ -29,13 +29,15 @@ public class TrivagoListHotelNames {
 	{
 		List<WebElement> Hotelnames=driver.findElements(By.tagName("h3"));
 		List<WebElement> FilterHotelNames=new ArrayList<WebElement>();
-		
+		By viewdetailbutton=By.xpath("//button[@class='btn btn--deal btn--regular icon-bg-icn_arrow_deal fl-trailing']");
+		int countVewDetail=0;
 		for(WebElement e: Hotelnames)
 		{
 			if(!e.getText().equalsIgnoreCase(""))
 			{
 				FilterHotelNames.add(e);
 			}
+			
 		}
 		
 		
@@ -58,7 +60,7 @@ public class TrivagoListHotelNames {
 				for(WebElement ShowHotelnames:FilterHotelNames)
 					
 				{
-					if(count==1)
+					if(count==0)
 					{
 					price1=FilterHotelPrices.get(count).getText().replace("₹", "Rs. ");	
 					}
@@ -67,7 +69,7 @@ public class TrivagoListHotelNames {
 					count++;
 				}
 				
-				System.out.println("You are on "+driver.getTitle()+" Page");
+				System.out.println("Count is "+count);
 				
 				
 				

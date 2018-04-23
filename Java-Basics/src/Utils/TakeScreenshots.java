@@ -15,11 +15,14 @@ public class TakeScreenshots extends DriverUtils{
 		super.driver=driver;
 	}
 	
-	public static void  getScreenshot () throws Exception
-	{
+	
+	public static void getScreenshot(String path) throws Exception {
+		// TODO Auto-generated method stub
+		
 		Thread.sleep(3000);
 		File src=((TakesScreenshot)DriverUtils.driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(src,  new File("D://screenshot4.png"));
+		FileUtils.copyFile(src,  new File(path));
+		
 	}
 
 }
