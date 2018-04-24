@@ -46,7 +46,7 @@ public class CommanUtility extends DriverUtils {
 		
 		else
 		{	
-			System.out.println(calnum);
+			//System.out.println(calnum);
 			Boolean month1=driver.findElement(By.xpath("//th[@id='cal-heading-month-first']")).getText().contains(month);
 			Boolean month2=driver.findElement(By.xpath("//th[@id='cal-heading-month-second']")).getText().contains(month);
 			By month1path=By.xpath("//th[@id='cal-heading-month-first']");
@@ -61,7 +61,7 @@ public class CommanUtility extends DriverUtils {
 			
 			if(month1==true)
 			{
-				System.out.println("month1"+month1);
+				//System.out.println("month1"+month1);
 			By caldays1=By.xpath("//td[contains(@headers, 'cal-heading-month-first')]");
 			List<WebElement> dates1=driver.findElements(caldays1);
 			

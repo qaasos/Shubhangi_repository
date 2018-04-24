@@ -26,11 +26,11 @@ public class TrivagoFilterHotels {
 	
 	public void filterHotelrooms() throws Exception
 	{
-        driver.findElements(score).get(4).click();
+        driver.findElements(score).get(3).click();
 		
 		Select sortBy= new Select(driver.findElement(By.id("mf-select-sortby")));
 		sortBy.selectByVisibleText("Distance only");
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 		
 		
 	}

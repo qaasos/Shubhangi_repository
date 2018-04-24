@@ -45,7 +45,7 @@ public class TrivagoHotelBookings {
 		String frommonth=Po.getProperty("frommonth");
 		String today=Po.getProperty("today");
 		String tomonth=Po.getProperty("tomonth");
-		System.out.println(fromday+frommonth+today+tomonth);
+		
 		
 		
 		String String1=GetExcelData.GetDataString(0, 0);
@@ -70,8 +70,8 @@ public class TrivagoHotelBookings {
 		TrivagoListHotelNames LH=new TrivagoListHotelNames(driver);
 		String priceofFirstHotel=LH.ListHotelNamesAndPrices();
 		
-		//TrivagoHotelDetailsView DH=new TrivagoHotelDetailsView(driver);
-		//DH.CheckPrice(priceofFirstHotel);
+		TrivagoHotelDetailsView DH=new TrivagoHotelDetailsView(driver);
+		DH.CheckPrice(priceofFirstHotel);
 		
 		
 		

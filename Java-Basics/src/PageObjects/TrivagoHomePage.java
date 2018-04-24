@@ -5,6 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -44,6 +45,7 @@ public class TrivagoHomePage extends CommanUtility {
 	public void SelectLocationsDatesAndRoomeType(int adultnum,int childnum,int childage1,String fromday,String frommonth,String today1,String tomonth1) throws Exception
 	{
 		
+		WebDriverWait d=new WebDriverWait(driver,10);
 		
 		//Thread.sleep(2000);
 		System.out.println(fromday+frommonth);
@@ -60,7 +62,9 @@ public class TrivagoHomePage extends CommanUtility {
 		String adultnumStr=Integer.toString(adultnum);
 		String childnumStr=Integer.toString(childnum);
 		String childage1Str=Integer.toString(childage1);
-	driver.findElements(fimilyRoom).get(2).click();
+		//d.until(ExpectedConditions.visibilityOfElementLocated(fimilyRoom)).get(2).click();
+	d.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(fimilyRoom)).get(2).click();
+		//driver.findElements(fimilyRoom).get(2).click();
 	
 	Select adultDP=new Select(driver.findElement(adult));
 	System.out.println(adultnum);

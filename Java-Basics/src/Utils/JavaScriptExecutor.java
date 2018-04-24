@@ -25,7 +25,7 @@ public class JavaScriptExecutor extends DriverUtils {
 		
         driver.findElement(By.id("horus-querytext")).sendKeys(String1);
 		
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 		driver.findElement(By.id("horus-querytext")).sendKeys(Keys.DOWN);
 		JavascriptExecutor js=(JavascriptExecutor)driver;	
 		

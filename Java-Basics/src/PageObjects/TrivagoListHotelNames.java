@@ -29,10 +29,15 @@ public class TrivagoListHotelNames {
 	{
 		List<WebElement> Hotelnames=driver.findElements(By.tagName("h3"));
 		List<WebElement> FilterHotelNames=new ArrayList<WebElement>();
-		By viewdetailbutton=By.xpath("//button[@class='btn btn--deal btn--regular icon-bg-icn_arrow_deal fl-trailing']");
+		List<WebElement> ViewDetail=driver.findElements(By.xpath("//button[contains(@class,'deal btn')]"));
+		//By viewdetailbutton=By.xpath("//button[@class='btn btn--deal btn--regular icon-bg-icn_arrow_deal fl-trailing']");
 		int countVewDetail=0;
+		//System.out.println("View detail count"+ViewDetail.size());
+		//System.out.println("Hotelnames"+Hotelnames.size());
+		
 		for(WebElement e: Hotelnames)
 		{
+			
 			if(!e.getText().equalsIgnoreCase(""))
 			{
 				FilterHotelNames.add(e);
@@ -42,21 +47,29 @@ public class TrivagoListHotelNames {
 		
 		
 		
+		
+		
+		
+		
 		List<WebElement> HotelPrices=driver.findElements(By.cssSelector(".item__best-price"));
 		List<WebElement> FilterHotelPrices=new ArrayList<WebElement>();
 		
+		//List<WebElement> FilterHotelPrices=new ArrayList<WebElement>();
+		
 		for(WebElement e: HotelPrices)
 		{
-			if(!e.getText().equalsIgnoreCase(""))
+			
+				if(!e.getText().equalsIgnoreCase(""))
+				
 			{
 				FilterHotelPrices.add(e);
 			}
+				
 		}
-		
-		
-		
+
 		int count=0;
 		String price1=null;
+				
 				for(WebElement ShowHotelnames:FilterHotelNames)
 					
 				{
@@ -65,16 +78,20 @@ public class TrivagoListHotelNames {
 					price1=FilterHotelPrices.get(count).getText().replace("₹", "Rs. ");	
 					}
 					
+					
 					System.out.println(ShowHotelnames.getText()+" "+FilterHotelPrices.get(count).getText().replace("₹", "Rs. "));
 					count++;
 				}
 				
+				
 				System.out.println("Count is "+count);
+		
 				
 				
 				
 				
 				return price1;
+		
 		
 	}
 

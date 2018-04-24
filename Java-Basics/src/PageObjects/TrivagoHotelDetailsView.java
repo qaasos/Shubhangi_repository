@@ -35,7 +35,7 @@ public class TrivagoHotelDetailsView {
 		driver.switchTo().window(ChildId);
 		
 		System.out.println("You are on "+driver.getTitle()+" Page");
-		Thread.sleep(4000);
+		//Thread.sleep(4000);
 		
 		String price="Rs. 1,466";
 		//price=driver.findElements(By.xpath("//p[@class='full fm-lb fs-28 ng-binding']")).get(0).getText();
